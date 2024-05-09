@@ -20,7 +20,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NotNull()
+    @Size(min = 6, max = 50, message = "Login must be between {min} and {max} characters long")
+    private String login;
+    @NotNull()
+    private String password;
+    @NotNull()
     @Size(min = 2, max = 50, message = "First name must be between {min} and {max} characters long.")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*\\d).+$", message = "Password must contain at least one uppercase letter and one digit")
     private String firstName;
     @NotNull()
     @Size(min = 2, max = 50, message = "Last name must be between {min} and {max} characters long.")
@@ -30,7 +36,7 @@ public class User {
     private String email;
     @NotNull()
     @Pattern(regexp = "\\d{9}", message = "\"The phone number must consist of 9 digits.")
-    private int phoneNumber;
+    private String phoneNumber;
     @NotNull()
     @Pattern(regexp = "\\d{2} \\d{2} \\d{4}", message = "The date of birth must be in the format dd mm yyyy.")
     private String dateOfBirth;
