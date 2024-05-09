@@ -23,7 +23,7 @@ public class UserService {
             userRepository.save(user);
             return ResponseEntity.ok("User registered successfully.");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to register user.");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed with register user.");
         }
     }
 }

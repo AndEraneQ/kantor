@@ -28,7 +28,7 @@ public class User {
 
     @NotNull()
     @Size(min = 2, max = 50, message = "First name must be between {min} and {max} characters long.")
-    //@Pattern(regexp = "^(?=.*[A-Z])(?=.*\\d).+$", message = "Password must contain at least one uppercase letter and one digit")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*\\d).+$", message = "Password must contain at least one uppercase letter and one digit")
     private String firstName;
 
     @NotNull()
@@ -37,14 +37,14 @@ public class User {
 
     @NotNull()
     @Column(unique = true)
-    //@Email(message = "Invalid email address format.")
+    @Email(message = "Invalid email address format.")
     private String email;
 
     @NotNull()
-    //@Pattern(regexp = "\\d{9}", message = "\"The phone number must consist of 9 digits.")
+    @Pattern(regexp = "\\d{9}", message = "\"The phone number must consist of 9 digits.")
     private String phoneNumber;
 
     @NotNull()
-    //@Pattern(regexp = "\\d{2} \\d{2} \\d{4}", message = "The date of birth must be in the format dd mm yyyy.")
+    @Temporal(TemporalType.DATE)
     private String dateOfBirth;
 }
