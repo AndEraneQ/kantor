@@ -17,8 +17,6 @@ import javax.validation.constraints.Size;
 @Setter
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     @NotNull()
     @Size(min = 6, max = 50, message = "Login must be between {min} and {max} characters long")
     private String login;
